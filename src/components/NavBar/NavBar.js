@@ -6,8 +6,8 @@ import headerBackground from "../../assets/header_background_1.jpg"
 
 const Navbar = () =>{
     return (
-        <header style={{ backgroundImage: `url(${headerBackground})` }}>
-            <img src={logo} alt="Logo de la tienda" />
+        <header style={{backgroundImage:`url(${headerBackground})`}}>
+            <img src={logo} alt="Logo de la tienda"/>
             <h1>Tiska</h1>
             <nav>
                 <ul>
