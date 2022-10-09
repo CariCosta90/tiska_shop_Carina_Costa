@@ -1,0 +1,15 @@
+.contadorProductos{
+    width: 10rem;
+    display: flex;
+    flex-direction: column;
+    
+}
+.contador{
+    display: flex;
+    justify-content: space-between;
+    height: 1.5rem;
+    margin-bottom: 4px;
+}
+.contador p{
+    margin: 0;
+}
