@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { ItemCount } from "../ItemCount/ItemCount";
 import ItemList from "../ItemList/ItemList";
-
+import Skeleton from '@mui/material/Skeleton';
 
 //mock data temporal
 const frutas = [
@@ -22,11 +22,13 @@ const promesa = new Promise ((resolve, reject)=>{
 
 const ItemListContainer = (mensaje) =>{
 
-    const onAdd = (numero)=>{
+/*     const onAdd = (numero)=>{
         console.log(numero);
-    }
+    } */
 
     const [productos, setProductos] = useState([]);
+
+    const [loading, setLoading] = useState(true);
 
  /*    para crear un loader tenemos que usar la misma logica que usamos en el show mostrado en clase
     use state con el loader (ver como se puede hacer) seteado a true en mismo el useState
@@ -37,6 +39,7 @@ const ItemListContainer = (mensaje) =>{
         promesa
         .then((data)=>{
             setProductos(data);
+            setLoading(false);
             console.log(data)
         })
         .catch((error)=>{
@@ -47,11 +50,9 @@ const ItemListContainer = (mensaje) =>{
     return(
         <div>
             <h2>{mensaje.greeting}</h2>
-            <ItemCount stock={10} onAdd={onAdd} inicial={1}/>
-{/* {            productos.map((producto)=>{
-                return <h2 key={producto.id}>{producto.nombre}</h2>
-            })} */}
-            <ItemList productos={productos}/> 
+            {/* <ItemCount stock={10} onAdd={onAdd} inicial={1}/> */}
+            {loading ? <Skeleton variant="circular" width={40} height={40} />: <ItemList productos={productos}/> } 
+            {/* <ItemList productos={productos}/>  */}
         </div>
     );
 }
