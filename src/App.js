@@ -10,6 +10,8 @@ const App = () =>{
     <>
       <NavBar />
       <ItemListContainer greeting={mensaje}/>
+      
+      
     </>
   );
 }
