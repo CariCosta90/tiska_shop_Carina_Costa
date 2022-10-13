@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { ItemCount } from "../ItemCount/ItemCount";
 import ItemList from "../ItemList/ItemList";
 import Skeleton from '@mui/material/Skeleton';
 
