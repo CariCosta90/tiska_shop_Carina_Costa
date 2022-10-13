@@ -16,9 +16,9 @@ img{
     background-color: #734a9153;
     text-decoration: none;
     font-family: 'Cinzel';
+    font-size: 0.8rem;
     transition: all 0.3s;
     position: relative;
-    font-weight: bold;
 }
 .btn-one::before {
     content: '';
@@ -47,7 +47,7 @@ h1{
     letter-spacing: 5px;
 }
 
-@media only screen and (max-width: 1100px) {
+@media only screen and (max-width: 1000px) {
     header {
         flex-direction: column;
     }

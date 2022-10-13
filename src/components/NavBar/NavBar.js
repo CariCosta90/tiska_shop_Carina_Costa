@@ -11,10 +11,10 @@ const Navbar = () =>{
             <h1>Tiska</h1>
             <nav>
                 <ul>
-                    <a href="#" className="btn btn-one">Blusas</a>  
-                    <a href="#" className="btn btn-one">Vestidos</a>
-                    <a href="#" className="btn btn-one">Zapatos</a>
-                    <a href="#" className="btn btn-one">Carteras</a>
+                    <a href="#" className="btn-one">Blusas</a>  
+                    <a href="#" className="btn-one">Vestidos</a>
+                    <a href="#" className="btn-one">Zapatos</a>
+                    <a href="#" className="btn-one">Carteras</a>
                 </ul>
             </nav>
             < CartWidget />

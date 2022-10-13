@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ItemList from "../ItemList/ItemList";
-import Skeleton from '@mui/material/Skeleton';
+import Spinner from 'react-bootstrap/Spinner';
 
 //mock data temporal
 const frutas = [
@@ -29,11 +29,6 @@ const ItemListContainer = (mensaje) =>{
 
     const [loading, setLoading] = useState(true);
 
- /*    para crear un loader tenemos que usar la misma logica que usamos en el show mostrado en clase
-    use state con el loader (ver como se puede hacer) seteado a true en mismo el useState
-    luego en el finally lo seteamos a false
-    al pasarlo en el return lo hacemos con un ternario si loading ? loeader : <ItemList productos={productos}/>} */
-
     useEffect(()=>{
         promesa
         .then((data)=>{
@@ -50,8 +45,9 @@ const ItemListContainer = (mensaje) =>{
         <div>
             <h2>{mensaje.greeting}</h2>
             {/* <ItemCount stock={10} onAdd={onAdd} inicial={1}/> */}
-            {loading ? <Skeleton variant="circular" width={40} height={40} />: <ItemList productos={productos}/> } 
-            {/* <ItemList productos={productos}/>  */}
+            {loading ? 
+                <Spinner animation="grow" />
+            : <ItemList productos={productos}/> } 
         </div>
     );
 }
