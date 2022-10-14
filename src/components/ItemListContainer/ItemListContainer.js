@@ -33,11 +33,13 @@ const ItemListContainer = (mensaje) =>{
         promesa
         .then((data)=>{
             setProductos(data);
-            setLoading(false);
             console.log(data)
         })
-        .catch((error)=>{
+        .catch((error)=>{ 
             console.log(error);
+        })
+        .finally(()=>{
+            setLoading(false);
         })
     },[]);
 
