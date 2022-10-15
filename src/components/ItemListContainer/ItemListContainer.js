@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ItemList from "../ItemList/ItemList";
 import Spinner from 'react-bootstrap/Spinner';
+import './ItemListContainer.css'
 
 
 const ItemListContainer = (mensaje) =>{
@@ -22,13 +23,14 @@ const ItemListContainer = (mensaje) =>{
 
 
     return(
-        <div>
-            {/* pendiente agregar styling al mensaje */}
-            <h2>{mensaje.greeting}</h2>
+        <>
+        {/* <h2>{mensaje.greeting}</h2> */}
+        <div className="cardContainer">
             {loading ? 
                 <Spinner animation="grow" />
             : <ItemList productos={productos}/> } 
         </div>
+        </>
     );
 }
 

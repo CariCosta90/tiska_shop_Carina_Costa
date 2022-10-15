@@ -71,7 +71,7 @@ h1{
     ul{
         display: flex;
         margin: 0;
-        padding: 0;
+        padding: 0 !important;
         flex-direction: column;
     }
     .btn-one{

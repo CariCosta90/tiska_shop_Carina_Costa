@@ -1,5 +1,5 @@
 import React from 'react'
-/* import ItemCount from '../ItemCount/ItemCount'; */
+import './Item.css'
 
 const Item = ({productos}) => {
 /*     const onAdd = (numero)=>{
@@ -7,13 +7,24 @@ const Item = ({productos}) => {
     } */
     return (
         <>
-        <p>{productos.title}</p>
-        <img src={productos.image} alt={productos.title} />
-        <p>{productos.price}</p> 
-        <button>Ver detalle</button>
-        {/* <ItemCount stock={10} onAdd={onAdd} inicial={1}/> */}
+        <div className='producto'>
+            <p className='tituloProducto'> {productos.title}</p>
+            <img className='fotoProducto' src={productos.image} alt={productos.title} />            
+            <div className='precio'>
+                <p>{productos.price}</p>
+                <div></div>
+            </div> 
+            <a class="fancy" href="#">
+                <span class="top-key"></span>
+                <span class="text">Ver detalle</span>
+                <span class="bottom-key-1"></span>
+                <span class="bottom-key-2"></span>
+            </a>
+
+        </div>
         </>
     )
 }
 
 export default Item;
+

@@ -1,0 +1,174 @@
+.producto{
+    display: flex;
+    flex-direction: column;
+    width: 16rem;
+    height: auto;
+    margin: 1.5rem;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    border: solid 1px rgba(75, 72, 72, 0.073);
+    border-radius: 1rem;
+    background-color: rgba(211, 188, 246,0.8);
+    box-shadow: -5px 7px 15px 0px rgba(0,0,0,0.81);
+}
+.fotoProducto{
+    width: 100%;
+    height: auto;
+    background-color: white;
+}
+
+.tituloProducto{
+    text-shadow: 2px 2px 2px #bc98f3;
+    text-align: center;
+    font-size: 1.5rem;
+    padding-top: 1rem;
+}
+
+.producto button{
+    margin: 1rem;
+}
+
+.precio{
+    position: relative;
+    background: #b57edc;
+    width: 16.46rem;
+    margin-right: -0.65rem;
+    padding: .2rem 1.2rem;
+    border-radius: 5px 0 0 5px;
+}
+.precio p {
+    margin: 0 0 0 4rem;
+    /* padding-top: .4rem; */
+    display: flex;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    font-size: 1.6rem;
+    font-weight: 500;
+    }
+
+    .precio p:before {
+        content: "$";
+        margin-right: 5px;
+        font-size: 15px;
+        font-weight: 300;
+    }
+
+    .precio div {
+        position: absolute;
+        bottom: -23px;
+        right: 0px;
+        width: 0;
+        height: 0;
+        border-top: 13px solid #6f56a0;
+        border-bottom: 10px solid transparent;
+        border-right: 13px solid transparent;
+        z-index: -6;
+    }
+
+
+.fancy {
+    background-color: transparent;
+    border: 2px solid #8f7193;
+    border-radius: 0;
+    box-sizing: border-box;
+    color: #e5dde6;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin: 0;
+    outline: none;
+    overflow: visible;
+    padding: 0.5rem 1.8rem;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-transform: none;
+    transition: all 0.3s ease-in-out;
+    user-select: none;
+    font-size: 13px;
+    margin:1rem;
+    }
+    
+    .fancy::before {
+        content: " ";
+        width: 1.5625rem;
+        height: 2px;
+        background: #503459;
+        top: 50%;
+        left: 1.5em;
+        position: absolute;
+        transform: translateY(-50%);
+        transform-origin: center;
+        transition: background 0.3s linear, width 0.3s linear;
+    }
+    
+    .fancy .text {
+        font-size: 0.6rem;
+        line-height: 1rem;
+        padding-left: 2em;
+        display: block;
+        text-align: left;
+        transition: all 0.3s ease-in-out;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: #503459;
+    }
+    
+    .fancy .top-key {
+        height: 2px;
+        width: 1.5625rem;
+        top: -2px;
+        left: 0.625rem;
+        position: absolute;
+        background: #e8e8e8;
+        transition: width 0.5s ease-out, left 0.3s ease-out;
+    }
+    
+    .fancy .bottom-key-1 {
+        height: 2px;
+        width: 1.5625rem;
+        right: 1.875rem;
+        bottom: -2px;
+        position: absolute;
+        background: #e8e8e8;
+        transition: width 0.5s ease-out, right 0.3s ease-out;
+    }
+    
+    .fancy .bottom-key-2 {
+        height: 2px;
+        width: 0.625rem;
+        right: 0.625rem;
+        bottom: -2px;
+        position: absolute;
+        background: #e8e8e8;
+        transition: width 0.5s ease-out, right 0.3s ease-out;
+    }
+    
+    .fancy:hover {
+        color: #e5dde6;
+        background: #503459;
+    }
+    
+    .fancy:hover::before {
+        width: 0.9375rem;
+        background: #e5dde6;
+    }
+    
+    .fancy:hover .text {
+        color: #e5dde6;
+        padding-left: 1.5em;
+    }
+    
+    .fancy:hover .top-key {
+        left: -2px;
+        width: 0px;
+    }
+    
+    .fancy:hover .bottom-key-1,
+        .fancy:hover .bottom-key-2 {
+        right: 0;
+        width: 0;
+    }
