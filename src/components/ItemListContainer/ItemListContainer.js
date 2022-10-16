@@ -31,8 +31,10 @@ const ItemListContainer = (mensaje) =>{
         }, 2000);
     },[id]);
 
+    useEffect(()=>{
+        setLoading(true);
+    },[id]);
     
-
     return(
         <>
         <h2>{mensaje.greeting}</h2>
