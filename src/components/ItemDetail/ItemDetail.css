@@ -1,0 +1,37 @@
+.detailContainer{
+    display: grid;
+    grid-template-areas: 
+    "titulo titulo"
+    "imagen descripcion"
+    "imagen precio"
+    "imagen contador"
+    ;
+    gap: 2rem;
+    justify-items: center;
+    align-items: center;
+}
+
+.titulo{
+    grid-area: titulo;
+}
+.imagen{
+    grid-area: imagen;
+    width: 90%;
+    height: auto;
+    box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.65);
+    border-radius: 2rem;
+}
+
+.descripcion{
+    grid-area: descripcion;
+}
+
+
+.precio{
+    grid-area: precio;
+    text-align: center;
+}
+
+.contador{
+    grid-area: contador;
+}

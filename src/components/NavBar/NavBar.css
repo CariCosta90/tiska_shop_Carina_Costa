@@ -41,7 +41,7 @@ img{
     opacity: 1; 
     transform: scale(1, 1); 
 }
-h1{
+.nombreEmpresa{
     font-size: 3.5rem;
     font-family: 'Cinzel';
     letter-spacing: 5px;
@@ -51,7 +51,7 @@ h1{
     header {
         flex-direction: column;
     }
-    h1{
+    .nombreEmpresa{
         font-size: 2rem;
         margin: 1rem;
     }
@@ -65,7 +65,7 @@ h1{
 
 @media only screen and (max-width: 670px) {
 
-    h1{
+    .nombreEmpresa{
         display: none;
     }
     ul{
