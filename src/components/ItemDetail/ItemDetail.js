@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ItemCount from '../ItemCount/ItemCount';
 import "./ItemDetail.css"
+import {Link} from "react-router-dom";
 
 export const ItemDetail = ({productos}) => {
+
+    const [agregarCarrito, setAgregarCarrito] = useState(true);
+
     const onAdd = (numero)=>{
         console.log(numero);
+        setAgregarCarrito(false);
     }
     
     return (
@@ -16,7 +21,8 @@ export const ItemDetail = ({productos}) => {
             <p>{productos.price}</p>
             <div></div>
         </div>
-        <ItemCount stock={10} onAdd={onAdd} inicial={1} className='contador'/>
+
+        {agregarCarrito ? <ItemCount stock={10} onAdd={onAdd} inicial={1} className='contador'/> :  <Link to="/cart"><button>Finalizar Compra</button></Link>}  
     </div>
         
     )

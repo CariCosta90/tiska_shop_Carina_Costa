@@ -49,6 +49,3 @@ const ItemListContainer = (mensaje) =>{
 
 export default ItemListContainer;
 
-/* Pendiente
-verificar donde pasar de nuevo el loading a true para que se siga ejecutando el spinner o eliminar el spinner y los 2 seg de espera 
-*/
