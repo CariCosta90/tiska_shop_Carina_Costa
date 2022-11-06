@@ -8,8 +8,8 @@ const CartWidget = () =>{
 
     return (
         <>
-        {/* agregar styling al p de qty */}
-        <p>{qty}</p>
+        {/* agregar styling al p de qty */} 
+        {qty === 0 ? '': <p>{qty}</p> }
             <ShoppingCartIcon color="secondary" fontSize="large"/>
         </>
     );

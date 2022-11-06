@@ -20,6 +20,9 @@ const ItemListContainer = (mensaje) =>{
     const URL_BASE = 'https://fakestoreapi.com/products';
     const URL_CATEGORIA = `${URL_BASE}/category/${id}`
 
+    useEffect(()=>{
+        setLoading(true);
+    },[id]);
 
     useEffect(()=>{       
         setTimeout(() => {  
@@ -31,9 +34,7 @@ const ItemListContainer = (mensaje) =>{
         }, 2000);
     },[id]);
 
-    useEffect(()=>{
-        setLoading(true);
-    },[id]);
+
     
     return(
         <>
