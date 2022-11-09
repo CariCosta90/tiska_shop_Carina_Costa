@@ -1,0 +1,93 @@
+.detalleCarrito{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin: 2rem;
+    border: 1px solid black;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.493);
+    border-radius: 0px 20px 0px 20px;
+}
+.pCarrito{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 10rem;
+    text-align: center;
+    padding: 2px;
+    margin: 0;
+    height: 3rem;
+    font-size: 1rem;
+}
+.btnBorrar{
+    display: flex;
+    justify-content: center;
+    width: 10rem;
+}
+.btnIcono{
+    width: 3rem;
+    background-color: #d32d5ce1 ;
+    border-radius: 5px;
+}
+.titulosCarrito{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    background-color: rgba(167, 167, 167, 0.274) ;
+}
+.elementoDelCarrito{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    margin-top: 1rem;
+    padding: 1rem 0;
+}
+.imgCarrito{
+    height: 3rem;
+    width: 10rem;
+    object-fit: contain;
+    background-color: white;
+}
+
+.carritoFooter{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.totalDelCarrito{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.493);
+    height: 50%;
+    width: 15rem;
+    text-align: center;
+    padding: auto 1rem;
+    border-radius: 0px 20px 0px 20px;
+    box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.37);
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    width: 100%;
+    margin-right: 5rem;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.493);
+    border-radius: 0px 20px 0px 20px;
+    box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.37);
+}
+label{
+    text-align: center;
+    margin: 3px;
+}
+
+.btnFinalizar{
+    width: 15rem;
+    margin: 3px;    
+}

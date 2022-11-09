@@ -21,7 +21,6 @@ const ItemListContainer = (mensaje) =>{
     const productCollection = collection(db, 'productos');
     const q = id ? query(productCollection, where('category', '==', id)) : productCollection;
 
-
     useEffect(() => {    
         getDocs(q)
         .then((result)=>{
@@ -41,10 +40,10 @@ const ItemListContainer = (mensaje) =>{
     
     return(
         <>
-        <h2>{mensaje.greeting}</h2>
+        <h2 className="bienvenida">{mensaje.greeting}</h2>
         <div className="cardContainer">
             {loading ? 
-                <Spinner animation="grow" />
+                <Spinner animation="border" />
             : <ItemList productos={productos}/>} 
         </div>
         </>

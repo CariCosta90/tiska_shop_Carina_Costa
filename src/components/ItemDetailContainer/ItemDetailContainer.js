@@ -5,7 +5,6 @@ import { useParams } from 'react-router-dom';
 import "./ItemDetailContainer.css";
 import {getDoc, collection, doc} from "firebase/firestore"
 import {db} from "../../firebase/firebase";
-/* import { Cart } from '../CartView/Cart'; */
 
 export const ItemDetailContainer = () => {
 
@@ -41,7 +40,6 @@ useEffect(()=>{
         <div className='container'>
             {loading ? <Spinner animation="border"/> : <ItemDetail productos={productos}/>}  
         </div> 
-            {/* <Cart productos={productos}/> */}
         </>
     )
 }

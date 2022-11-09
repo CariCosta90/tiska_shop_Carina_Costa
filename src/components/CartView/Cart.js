@@ -4,22 +4,31 @@ import { Link } from 'react-router-dom';
 import { db } from '../../firebase/firebase';
 import {collection, addDoc, serverTimestamp, doc, updateDoc} from "firebase/firestore";
 import swal from 'sweetalert';
+import "./Cart.css"
+import DeleteIcon from '@mui/icons-material/Delete';
 
 export const Cart = () => {
   const {cart, qty, total, deleteItem, clear} = useContext(CartContext);
 
-/*   const comprador = {
-    nombre: 'Un usuario', 
-    apellido: 'Apellido',
-    email: 'mail@mail.com',    
-  } */
+  let nombre="";
+  let apellido="";
+  let email="";
 
+  const valEmail = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g;
+
+  /* este de val texto no esta funcionando la validacion del largo - rever */
+  const valTexto = /[A-Za-z]{4-20}/g;
+  
   const obtenerDatos = ()=>{
-    const nombre = document.getElementById('name').value;
-    const apellido = document.getElementById('lName').value;
-    const email = document.getElementById('mail').value;
+    nombre = document.getElementById('name').value;
+    apellido = document.getElementById('lName').value;
+    email = document.getElementById('mail').value;
 
-    finalizarCompra(nombre, apellido, email);
+    if(nombre ===valTexto && apellido===valTexto && email === valEmail){
+      actualizarStock()
+    }else{
+      swal("Falta algo!", "Debes completar el formulario para poder avanzar con la compra", "warning");
+    }
   }
 
   const finalizarCompra = (nombre, apellido, email)=>{
@@ -30,7 +39,6 @@ export const Cart = () => {
         apellido: apellido,
         email: email,
       },
-      /* modificar items para que no contenga la descripcion ni la imagen. nos podemos quedar con producto, cantidad, precio, total */
       items: cart, 
       total,
       date: serverTimestamp(),
@@ -49,12 +57,10 @@ export const Cart = () => {
   const actualizarStock =()=>{
 
     cart.forEach(element => {
-      console.log(element.id);
-      console.log(element.Stock);
       const updateStock = doc(db, "productos", element.id)
       updateDoc(updateStock, {Stock: element.Stock - qty})
     });
-    obtenerDatos();
+    finalizarCompra(nombre, apellido, email);
   }
 
   return (
@@ -64,30 +70,46 @@ export const Cart = () => {
       (
         <h1>No agregaste productos aun, puedes ir a verlos  <Link to="/">AQUI</Link></h1>
       ):(
-        <>
-        {cart.map((prod)=>(
-          <div key={prod.id} className='elementoDelCarrito'>
-          <p>{prod.title}</p>
-          {/* <img src={prod.image} alt={prod.title} className='imagen'/> */}
-          <p>{prod.cantidad}</p>
-          <p>$ {prod.price}</p>
-          <p>$ {prod.price * prod.cantidad}</p>
-          <button onClick={()=>deleteItem(prod.id)}>Borrar</button>
-          </div>
-        ))}
-          <div className='totalDelCarrito'>
-            <p>Productos: {qty}</p>
-            <p>Total del carrito: $ {total}</p>            
-          </div>
-          <div>
-            <form action="">
-              <label> Nombre: <input id='name' type="text" /></label>
-              <label> Apellido: <input id='lName' type="text" /></label>
-              <label> Email: <input id='mail' type="email" /></label>
-              <input type="button" value="Finalizar Compra" onClick={actualizarStock}/>
-              <button onClick={clear}>Limpiar Carrito</button>
-            </form>
-          </div>          
+    <>
+
+<div className='detalleCarrito'>
+      <div className='titulosCarrito'>
+        <p className='pCarrito'>Foto</p>
+        <p className='pCarrito'>Producto</p>
+        <p className='pCarrito'>Unidades</p>
+        <p className='pCarrito'>Precio Unitario</p>
+        <p className='pCarrito'>SubTotal</p>
+        <p className='pCarrito'>Borrar</p>
+      </div>          
+      {cart.map((prod)=>(
+        <div key={prod.id} className='elementoDelCarrito'>
+            <img src={prod.image} alt={prod.title} className='imgCarrito'/> 
+            <p className='pCarrito'>{prod.title}</p>
+            <p className='pCarrito'>{prod.cantidad}</p>
+            <p className='pCarrito'>$ {prod.price}</p>
+            <p className='pCarrito'>$ {prod.price * prod.cantidad}</p>
+            <div className='btnBorrar'>
+              <button className='btnIcono' onClick={()=>deleteItem(prod.id)}><DeleteIcon /></button>
+            </div>
+        </div>
+      ))}
+</div>
+
+        <div className='carritoFooter'>
+            <div className='totalDelCarrito'>
+              <p>Productos: {qty}</p>
+              <p>Total del carrito: $ {total}</p>            
+            </div>
+            <div>
+              <form action="" className='form'>
+                <label>Nombre: <input required pattern="[A-Za-z]{4-16}" id='name' type="text"/></label>
+                <label>Apellido: <input required pattern="[A-Za-z]{4-16}" id='lName' type="text"/></label>
+                <label>Email: <input required pattern='^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$' id='mail' type="email"/></label>
+                <input className='btnFinalizar' type="submit" value="Finalizar Compra" onClick={obtenerDatos}/>
+                <button className='btnFinalizar' onClick={clear}>Limpiar Carrito</button>
+              </form>
+            </div>       
+        </div>   
         </>
       )
     }

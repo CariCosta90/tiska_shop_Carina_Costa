@@ -35,14 +35,9 @@ Durante el curso del proyecto se trabaja primero con una api ([Fake Store Api](h
 
 ##  ```Preview:```
 
-para traer un gif - cargar el gif en assets (crear un assets dentro de public)
-![aca va el alt]()
+![Vista previa de la pagina](public/assets/TiskaPreview.gif)
 
 #### Link a la pagina publicada
-
-[pagina](link)
-
-#### Link a gitHub Pages (actualizar para que funcione)
 
 [pagina](link)
 
@@ -51,6 +46,6 @@ para traer un gif - cargar el gif en assets (crear un assets dentro de public)
 ##### Sobre mi
 
 >Trabajando en mejorar mis habilidades para ser front-end web developer
->Conoceme en mi [Linkedin](link)
+>Conoceme en mi [Linkedin](https://www.linkedin.com/in/carina-ariadna-costa-gonz%C3%A1lez-54891233/)
 
 ---

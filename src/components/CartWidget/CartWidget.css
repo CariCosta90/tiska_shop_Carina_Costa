@@ -1,0 +1,12 @@
+.qty {
+    height: 1.2rem;
+    width: 1.2rem;
+    position: absolute;
+    color: rgb(68, 55, 80);
+    background-color: burlywood;
+    font-size: 0.8rem;
+    text-align: center;
+    vertical-align: top;
+    border-radius: 50%;
+    margin-left: 1.5rem;
+}
