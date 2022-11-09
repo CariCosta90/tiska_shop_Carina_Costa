@@ -3,7 +3,6 @@ import './Item.css'
 import {Link} from "react-router-dom";
 
 const Item = ({productos}) => {
-    console.log(productos);
     const URL = `/producto/${productos.id}`
     return (
         <>

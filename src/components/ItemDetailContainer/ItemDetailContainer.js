@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import "./ItemDetailContainer.css";
 import {getDoc, collection, doc} from "firebase/firestore"
 import {db} from "../../firebase/firebase";
+/* import { Cart } from '../CartView/Cart'; */
 
 export const ItemDetailContainer = () => {
 
@@ -13,19 +14,6 @@ const [loading, setLoading] = useState(true);
 
 const {id} = useParams();
 
-/* const URL_BASE = 'https://fakestoreapi.com/products';
-const URL_PRODUCTO = `${URL_BASE}/${id}` */
-
-
-/* useEffect(()=>{
-    setTimeout(() => {
-        fetch(URL_PRODUCTO)
-        .then(res=>res.json())
-        .then(json=>setProductos(json))
-        .catch((error)=>{console.log(error);})
-        .finally(setLoading(false))
-    }, 2000);
-},[]); */
 useEffect(()=>{
 
     const productCollection = collection (db, 'productos')
@@ -52,7 +40,8 @@ useEffect(()=>{
         <>
         <div className='container'>
             {loading ? <Spinner animation="border"/> : <ItemDetail productos={productos}/>}  
-        </div>      
+        </div> 
+            {/* <Cart productos={productos}/> */}
         </>
     )
 }

@@ -18,28 +18,10 @@ const ItemListContainer = (mensaje) =>{
 
     const {id}=useParams();
 
-    /* armamos las rutas */
-
-/*     const URL_BASE = 'https://fakestoreapi.com/products'; */
-/*     const URL_CATEGORIA = `${URL_BASE}/category/${id}` */
-
     const productCollection = collection(db, 'productos');
     const q = id ? query(productCollection, where('category', '==', id)) : productCollection;
 
-/*     useEffect(()=>{
-        setLoading(true);
-    },[id]);
 
-    useEffect(()=>{       
-        setTimeout(() => {  
-        fetch(id === undefined ? URL_BASE : URL_CATEGORIA)
-        .then(res=>res.json())
-        .then(json=>setProductos(json))
-        .catch(()=>{console.log('error');})
-        .finally(setLoading(false))
-        }, 2000);
-    },[id]);
- */
     useEffect(() => {    
         getDocs(q)
         .then((result)=>{
@@ -56,8 +38,6 @@ const ItemListContainer = (mensaje) =>{
         })
         .finally(setLoading(false));
     }, [id]);
-    
-    console.log(productos);
     
     return(
         <>

@@ -9,7 +9,6 @@ export const CartProvider = ({children}) => {
     const [total, setTotal] = useState(0);
 
     const addItem = (item, cantidad)=>{
-        console.log(`esta funcion agrega ${cantidad} de ${item.title} al carrito, su precio es $${item.price}`);
         if(IsInCart(item.id)){
             const modificado = cart.map((producto) => {
                 if (producto.id === item.id) {
@@ -24,7 +23,6 @@ export const CartProvider = ({children}) => {
         
     }
     const deleteItem = (id)=>{
-        console.log('esta funcion borra del carrito');
         setCart(cart.filter(item => item.id !== id));
     }
 
@@ -46,7 +44,6 @@ export const CartProvider = ({children}) => {
     
 
     const clear = ()=>{
-        console.log('esta funcion borra todo el carrito');
         setCart([]); 
         setQty(0);
         setTotal(0);
