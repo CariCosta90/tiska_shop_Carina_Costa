@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/tiska_shop_Carina_Costa/precache-manifest.1b246bf68b854b9e851053bab10d4759.js"
+  "/tiska_shop_Carina_Costa/precache-manifest.b0a4f8567685d5c39bd514aa7b8d99ab.js"
 );
 
 workbox.clientsClaim();

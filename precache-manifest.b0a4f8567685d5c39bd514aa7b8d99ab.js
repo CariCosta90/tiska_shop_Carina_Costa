@@ -1,15 +1,19 @@
 self.__precacheManifest = [
   {
-    "revision": "ae63abd230f0bbbf2b94",
-    "url": "/tiska_shop_Carina_Costa/static/css/main.48d75ca2.chunk.css"
+    "revision": "4568e623eda7178b7f2c",
+    "url": "/tiska_shop_Carina_Costa/static/css/main.9f63fcd5.chunk.css"
   },
   {
-    "revision": "ae63abd230f0bbbf2b94",
-    "url": "/tiska_shop_Carina_Costa/static/js/main.ae63abd2.chunk.js"
+    "revision": "4568e623eda7178b7f2c",
+    "url": "/tiska_shop_Carina_Costa/static/js/main.4568e623.chunk.js"
   },
   {
-    "revision": "79d3298a13e547ff2833",
-    "url": "/tiska_shop_Carina_Costa/static/js/1.79d3298a.chunk.js"
+    "revision": "9eb8c44e809f3fe0e5bb",
+    "url": "/tiska_shop_Carina_Costa/static/css/1.c5d4ff76.chunk.css"
+  },
+  {
+    "revision": "9eb8c44e809f3fe0e5bb",
+    "url": "/tiska_shop_Carina_Costa/static/js/1.9eb8c44e.chunk.js"
   },
   {
     "revision": "ea04057d21a2e7a2121b",
@@ -24,7 +28,7 @@ self.__precacheManifest = [
     "url": "/tiska_shop_Carina_Costa/static/media/header_background_1.acf705be.jpg"
   },
   {
-    "revision": "ec7136b1448b50eb84e5e36c47d8622b",
+    "revision": "06cbfc769b8b0bbaf8cc352d945ceaaa",
     "url": "/tiska_shop_Carina_Costa/index.html"
   }
 ];
