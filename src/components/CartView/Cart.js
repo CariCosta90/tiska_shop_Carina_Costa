@@ -15,19 +15,23 @@ export const Cart = () => {
   let email="";
 
   const valEmail = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g;
-  const valTexto = /[A-Za-z]/;
+ /*  const valTexto = /[A-Za-z]/; */
   
   const obtenerDatos = ()=>{
     nombre = document.getElementById('name').value;
     apellido = document.getElementById('lName').value;
     email = document.getElementById('mail').value;
 
-    if(nombre ===valTexto && apellido===valTexto && email === valEmail){
-      actualizarStock()
-    }else{
+    if(email !== valEmail){
       swal("Falta algo!", "Debes completar el formulario para poder avanzar con la compra", "warning");
+    }else{
+      cart.forEach(element => {
+        const updateStock = doc(db, "productos", element.id)
+        updateDoc(updateStock, {Stock: element.Stock - qty})
+      });
+      finalizarCompra(nombre, apellido, email);
     }
-  }
+  }; 
 
   const finalizarCompra = (nombre, apellido, email)=>{
     const ventaCollection = collection(db, "ventas");
@@ -50,14 +54,14 @@ export const Cart = () => {
     clear();    
   }
 
-  const actualizarStock =()=>{
+/*   const actualizarStock =()=>{
 
     cart.forEach(element => {
       const updateStock = doc(db, "productos", element.id)
       updateDoc(updateStock, {Stock: element.Stock - qty})
     });
     finalizarCompra(nombre, apellido, email);
-  }
+  } */
 
   return (
     <>
@@ -98,8 +102,8 @@ export const Cart = () => {
             </div>
             <div>
               <form action="" className='form'>
-                <label>Nombre: <input required minlength="3" id='name' type="text"/></label>
-                <label>Apellido: <input required minlength="3" id='lName' type="text"/></label>
+                <label>Nombre: <input required id='name' minLength="3" type="text"/></label>
+                <label>Apellido: <input required id='lName' minLength="3" type="text"/></label>
                 <label>Email: <input required id='mail' type="email"/></label>
                 <input className='btnFinalizar' type="submit" value="Finalizar Compra" onClick={obtenerDatos}/>
                 <button className='btnFinalizar' onClick={clear}>Limpiar Carrito</button>
