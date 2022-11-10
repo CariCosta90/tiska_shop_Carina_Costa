@@ -15,7 +15,8 @@ export const Cart = () => {
     setUser( user => ({...user, [event.target.name]: event.target.value }))
 }
 
-  const updateStock = ()=>{
+  const updateStock = (e)=>{
+    e.preventDefault();
     cart.forEach(element => {
       const updateStock = doc(db, "productos", element.id)
       updateDoc(updateStock, {Stock: element.Stock - qty})
@@ -79,9 +80,9 @@ export const Cart = () => {
             </div>
             <div>
               <form action="" className='form' onSubmit={updateStock}>
-                <input onChange={updateUser} placeholder="Nombre" name='name' type='text' />
-                <input onChange={updateUser} placeholder="Apellido" name='surname' type='text' />
-                <input onChange={updateUser} placeholder="Email" name='email' type='email' />
+                <input onChange={updateUser} placeholder="Nombre" name='name' type='text' required/>
+                <input onChange={updateUser} placeholder="Apellido" name='surname' type='text' required/>
+                <input onChange={updateUser} placeholder="Email" name='email' type='email' required/>
                 <button className='btnFinalizar' type="submit">Finalizar Compra</button>
                 <button className='btnFinalizar' onClick={clear}>Limpiar Carrito</button>
               </form>
