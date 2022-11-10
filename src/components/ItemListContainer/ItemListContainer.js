@@ -6,9 +6,6 @@ import { useParams } from "react-router-dom";
 import {db} from "../../firebase/firebase";
 import { getDocs, collection, query, where } from 'firebase/firestore';
 
-
-
-
 const ItemListContainer = (mensaje) =>{
 
 

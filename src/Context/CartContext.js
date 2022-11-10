@@ -19,8 +19,8 @@ export const CartProvider = ({children}) => {
                 setCart(modificado);
         }else{
             setCart([...cart, {...item, cantidad}])
-        }
-        
+        }     
+
     }
     const deleteItem = (id)=>{
         setCart(cart.filter(item => item.id !== id));

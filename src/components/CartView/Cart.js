@@ -15,9 +15,7 @@ export const Cart = () => {
   let email="";
 
   const valEmail = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g;
-
-  /* este de val texto no esta funcionando la validacion del largo - rever */
-  const valTexto = /[A-Za-z]{4-20}/g;
+  const valTexto = /[A-Za-z]/;
   
   const obtenerDatos = ()=>{
     nombre = document.getElementById('name').value;
@@ -52,8 +50,6 @@ export const Cart = () => {
     clear();    
   }
 
-
-
   const actualizarStock =()=>{
 
     cart.forEach(element => {
@@ -68,7 +64,7 @@ export const Cart = () => {
     {
       cart.length === 0 ? 
       (
-        <h1>No agregaste productos aun, puedes ir a verlos  <Link to="/">AQUI</Link></h1>
+        <h2>No agregaste productos aun, puedes ir a verlos  <Link to="/">AQUI</Link></h2>
       ):(
     <>
 
@@ -102,9 +98,9 @@ export const Cart = () => {
             </div>
             <div>
               <form action="" className='form'>
-                <label>Nombre: <input required pattern="[A-Za-z]{4-16}" id='name' type="text"/></label>
-                <label>Apellido: <input required pattern="[A-Za-z]{4-16}" id='lName' type="text"/></label>
-                <label>Email: <input required pattern='^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$' id='mail' type="email"/></label>
+                <label>Nombre: <input required minlength="3" id='name' type="text"/></label>
+                <label>Apellido: <input required minlength="3" id='lName' type="text"/></label>
+                <label>Email: <input required id='mail' type="email"/></label>
                 <input className='btnFinalizar' type="submit" value="Finalizar Compra" onClick={obtenerDatos}/>
                 <button className='btnFinalizar' onClick={clear}>Limpiar Carrito</button>
               </form>

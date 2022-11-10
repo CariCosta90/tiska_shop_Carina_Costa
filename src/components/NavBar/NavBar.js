@@ -36,7 +36,3 @@ const categorias = [
 }
 
 export default Navbar;
-
-/* pendiente:
-verificar styling de tab active
-*/
