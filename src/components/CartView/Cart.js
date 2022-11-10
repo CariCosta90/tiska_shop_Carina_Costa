@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import React, {useContext, useState} from 'react'
 import { CartContext } from '../../Context/CartContext'
 import { Link } from 'react-router-dom';
 import { db } from '../../firebase/firebase';
@@ -9,38 +9,24 @@ import DeleteIcon from '@mui/icons-material/Delete';
 
 export const Cart = () => {
   const {cart, qty, total, deleteItem, clear} = useContext(CartContext);
+  const [user, setUser] = useState({});
 
-  let nombre="";
-  let apellido="";
-  let email="";
+  const updateUser = (event) => {
+    setUser( user => ({...user, [event.target.name]: event.target.value }))
+}
 
-  const valEmail = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g;
- /*  const valTexto = /[A-Za-z]/; */
-  
-  const obtenerDatos = ()=>{
-    nombre = document.getElementById('name').value;
-    apellido = document.getElementById('lName').value;
-    email = document.getElementById('mail').value;
+  const updateStock = ()=>{
+    cart.forEach(element => {
+      const updateStock = doc(db, "productos", element.id)
+      updateDoc(updateStock, {Stock: element.Stock - qty})
+    });
+    finalizarCompra();  
+  }
 
-    if(email !== valEmail){
-      swal("Falta algo!", "Debes completar el formulario para poder avanzar con la compra", "warning");
-    }else{
-      cart.forEach(element => {
-        const updateStock = doc(db, "productos", element.id)
-        updateDoc(updateStock, {Stock: element.Stock - qty})
-      });
-      finalizarCompra(nombre, apellido, email);
-    }
-  }; 
-
-  const finalizarCompra = (nombre, apellido, email)=>{
+  const finalizarCompra = ()=>{
     const ventaCollection = collection(db, "ventas");
     addDoc(ventaCollection, {
-      comprador: {
-        nombre: nombre,
-        apellido: apellido,
-        email: email,
-      },
+      comprador: user,
       items: cart, 
       total,
       date: serverTimestamp(),
@@ -53,15 +39,6 @@ export const Cart = () => {
     })
     clear();    
   }
-
-/*   const actualizarStock =()=>{
-
-    cart.forEach(element => {
-      const updateStock = doc(db, "productos", element.id)
-      updateDoc(updateStock, {Stock: element.Stock - qty})
-    });
-    finalizarCompra(nombre, apellido, email);
-  } */
 
   return (
     <>
@@ -101,11 +78,11 @@ export const Cart = () => {
               <p>Total del carrito: $ {total}</p>            
             </div>
             <div>
-              <form action="" className='form'>
-                <label>Nombre: <input required id='name' minLength="3" type="text"/></label>
-                <label>Apellido: <input required id='lName' minLength="3" type="text"/></label>
-                <label>Email: <input required id='mail' type="email"/></label>
-                <input className='btnFinalizar' type="submit" value="Finalizar Compra" onClick={obtenerDatos}/>
+              <form action="" className='form' onSubmit={updateStock}>
+                <input onChange={updateUser} placeholder="Nombre" name='name' type='text' />
+                <input onChange={updateUser} placeholder="Apellido" name='surname' type='text' />
+                <input onChange={updateUser} placeholder="Email" name='email' type='email' />
+                <button className='btnFinalizar' type="submit">Finalizar Compra</button>
                 <button className='btnFinalizar' onClick={clear}>Limpiar Carrito</button>
               </form>
             </div>       
