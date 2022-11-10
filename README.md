@@ -37,9 +37,9 @@ Durante el curso del proyecto se trabaja primero con una api ([Fake Store Api](h
 
 ![Vista previa de la pagina](public/assets/TiskaPreview.gif)
 
-#### Link a la pagina publicada
+#### Link a la pagina publicada en Netlify
 
-[pagina](link)
+[pagina](https://tiska-shop.netlify.app/)
 
 ---
 
